@@ -19,3 +19,6 @@ secret_key <- data_key(".", Sys.getenv("path_secret_key"))
 
 ## ---- Read data in -----------------------------------------------------------
 source("scripts/read-in-data.R")
+
+## ---- Read data in -----------------------------------------------------------
+source("scripts/data-wrangling.R")
