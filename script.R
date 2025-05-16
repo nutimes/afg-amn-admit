@@ -17,6 +17,9 @@ library(cyphr)
 ## ---- Retrieve secret key ----------------------------------------------------
 secret_key <- data_key(".", Sys.getenv("path_secret_key"))
 
+## ---- Read project-specific functions ----------------------------------------
+lapply(list.files(path = "R", full.names = TRUE), FUN = source)
+
 ## ---- Read data in -----------------------------------------------------------
 source("scripts/read-in-data.R")
 
