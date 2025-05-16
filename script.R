@@ -23,5 +23,17 @@ lapply(list.files(path = "R", full.names = TRUE), FUN = source)
 ## ---- Read data in -----------------------------------------------------------
 source("scripts/read-in-data.R")
 
-## ---- Read data in -----------------------------------------------------------
+## ---- Wrangle admissions data  -----------------------------------------------
 source("scripts/data-wrangling.R")
+
+## ---- Run Exploratory data analysis on admissios -----------------------------
+source("scripts/eda-graphics.R")
+
+## ---- Decompose admissions into trend and seasonality  -----------------------
+source("scripts/decomposition.R")
+
+## ---- Understand the seasonal component --------------------------------------
+source("scripts/seasonal-component.R")
+
+## ---- Understand the trend component -----------------------------------------
+source("scripts/trend-component.R")

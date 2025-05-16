@@ -7,6 +7,7 @@
 
 ### ------------------------------------------------------------- Time plot ----
 tsplot <- na |>
+  filter(time < yearmonth("2019 Aug")) |> 
   autoplot(.vars = .admissions) +
   xlab("Time [1M]") +
   ylab("Number of cases") +
