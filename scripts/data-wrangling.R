@@ -58,7 +58,7 @@ lbd_na <- na |>
   pull(lambda_guerrero)
 
 #### Transform the data ----
-na_b <- na |> 
+nabx <- na |> 
   mutate(
     .admissions = do.call(
       what = box_cox,
