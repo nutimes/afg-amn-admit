@@ -21,27 +21,27 @@ summarise_admissions <- function(.ts, .group = TRUE, time = c("M", "Q")) {
   if (.group) {
     if (time == "M") {
       .ts <- .ts |>
-        select(province, time, .admissions) |>
-        group_by(province, time) |>
+        select(regions, time, .admissions) |>
+        group_by(regions, time) |>
         summarise(
           .admissions = sum(.admissions, na.rm = TRUE),
           .groups = "drop"
         ) |>
         as_tsibble(
           index = time,
-          key = province
+          key = regions
         )
     }
     if (time == "Q") {
       .ts <- .ts |>
-        select(province, time, .admissions) |>
-        group_by(province, time) |>
+        select(regions, time, .admissions) |>
+        group_by(regions, time) |>
         summarise(
           .admissions = sum(.admissions, na.rm = TRUE),
           .groups = "drop"
         ) |>
         as_tsibble(
-          key = province,
+          key = regions,
           index = time
         )
     }
