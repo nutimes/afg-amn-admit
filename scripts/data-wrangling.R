@@ -67,10 +67,60 @@ nabx <- na |>
   )
 
 ### ------------------------------------------------ At the Province level -----
-prov <- admissions |>
+reg <- admissions |>
+  mutate(
+    regions = case_when(
+      province %in% c(
+        "Takhar", "Kunduz", "Badakhshan", "Baghlan", "Samangan", "Sar-e-Pul",
+        "Faryab", "Jawzjan", "Balkh", "Badghis", "Hirat", "Ghor"
+      ) ~ "north", 
+      province %in% c(
+        "Helmand", "Kandahar", "Zabul", "Ghazni", "Paktika",
+        "Paktia", "Khost", "Logar"
+      ) ~ "south", 
+      province %in% c(
+        "Farah", "Nimroz"
+      ) ~ "west", 
+      province %in% c(
+        "Urozgan", "Daikundi", "Bamyan", "Wardak", "Parwan", "Kabul", "Kapisa",
+        "Panjshir"
+      ) ~ "central", 
+      .default = "east"
+    )
+  ) |> 
+  mutate(
+    regions = case_when(
+      regions %in% c("central", "east") ~ "central-east",
+      regions %in% c("north", "south") ~ "north-south",
+      .default = "west"
+    )
+  ) |> 
   summarise_admissions(
     .group = TRUE,
     time = "M"
+  )
+
+### ------------------------------------------ Apply Box-Cox transformation ----
+#### Get lambdas ----
+lambda_regions <- reg |> 
+  features(
+    .var = .admissions,
+    features = guerrero
+  ) |> 
+  pull(lambda_guerrero)
+
+
+#### Apply Box-Cox transformation ----
+reg_bxcx <- reg |> 
+  mutate(
+    .admissions = do.call(
+      what = row_wise_box_cox,
+      args = list(
+        admissions = .admissions,
+        regions = regions,
+        lambdas = lambda_regions
+      )
+    )
   )
 
 ############################### End of Workflow ################################
