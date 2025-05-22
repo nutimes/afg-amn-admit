@@ -6,11 +6,11 @@
 morbidity <- raw_data_morbidity |> 
   rename(
     morbidity = OPD.morbidity,
-    province = Province
+    location = Province
   ) |> 
   filter(morbidity != "HMIS-MIAR-OPD- New Patients/Clients") |> 
   pivot_longer(
-    cols = !c(morbidity, province),
+    cols = !c(morbidity, location),
     names_to = "time",
     values_to = ".admissions"
   ) |> 
@@ -36,5 +36,48 @@ morbidity <- morbidity |>
     )
   ) |> 
   relocate(
-    province, .before = morbidity
+    location, .before = morbidity
+  )
+
+## ---- Summarise admissions ---------------------------------------------------
+
+### ------------------------------------------------- At the National level ----
+morbi_ntln <- summarise_admissions_morb(
+  .ts = morbidity,
+  .group = FALSE
+)
+
+
+### ------------------------------------------------ At the Province level -----
+morbi_reg <- morbidity|>
+  mutate(
+    regions = case_when(
+      location %in% c(
+        "Takhar", "Kunduz", "Badakhshan", "Baghlan", "Samangan", "Sar-e-Pul",
+        "Faryab", "Jawzjan", "Balkh", "Badghis", "Hirat", "Ghor"
+      ) ~ "north", 
+      location %in% c(
+        "Helmand", "Kandahar", "Zabul", "Ghazni", "Paktika",
+        "Paktia", "Khost", "Logar"
+      ) ~ "south", 
+      location %in% c(
+        "Farah", "Nimroz"
+      ) ~ "west", 
+      location %in% c(
+        "Urozgan", "Daikundi", "Bamyan", "Wardak", "Parwan", "Kabul", "Kapisa",
+        "Panjshir"
+      ) ~ "central", 
+      .default = "east"
+    )
+  ) |> 
+  mutate(
+    regions = case_when(
+      regions %in% c("central", "east") ~ "central-east",
+      regions %in% c("north", "south") ~ "north-south",
+      .default = "west"
+    )
+  ) |> 
+  summarise_admissions_morb(
+    .group = TRUE,
+    location = regions
   )
