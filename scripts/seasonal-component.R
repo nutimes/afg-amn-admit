@@ -108,11 +108,11 @@ cmpnts_regional |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### Before 2017 ----
+#### Before 2016 ----
 cmpnts_regional |>
   select(season_year) |>
   filter(regions == "north-south") |>
-  filter(year(time) < 2017) |>
+  filter(year(time) < 2016) |>
   gg_season(y = season_year) +
   labs(
     colour = "Year",
@@ -126,11 +126,11 @@ cmpnts_regional |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### Between 2017 and 2019 ----
+#### Between 2016 and 2019 ----
 cmpnts_regional |>
   select(season_year) |>
   filter(regions == "north-south") |>
-  filter(year(time) >= 2017 & year(time) <= 2019) |>
+  filter(year(time) >= 2016 & year(time) <= 2019) |>
   gg_season(y = season_year) +
   labs(
     colour = "Year",
@@ -199,11 +199,29 @@ cmpnts_regional |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### Before 2020 ----
+#### Before 2016 ----
 cmpnts_regional |>
   select(season_year) |>
   filter(regions == "central-east") |>
-  filter(year(time) < 2020) |>
+  filter(year(time) < 2016) |>
+  gg_season(y = season_year) +
+  labs(
+    colour = "Year",
+    y = "Seasonal effect",
+    x = "Time [1M]"
+  ) +
+  theme(
+    plot.subtitle = element_text(colour = "#706E6D"),
+    plot.caption = element_text(colour = "#706E6D"),
+    axis.title.y = element_text(size = 10, margin = margin(r = 5)),
+    axis.title.x = element_text(size = 10, margin = margin(t = 5))
+  )
+
+#### Between 2016 and 2019 ----
+cmpnts_regional |>
+  select(season_year) |>
+  filter(regions == "central-east") |>
+  filter(year(time) >= 2016 & year(time) <= 2019) |>
   gg_season(y = season_year) +
   labs(
     colour = "Year",
