@@ -44,8 +44,10 @@ morbidity <- morbidity |>
 ### ------------------------------------------------- At the National level ----
 morbi_ntln <- summarise_admissions_morb(
   .ts = morbidity,
-  .group = FALSE
-)
+  .group = FALSE, 
+  location = NULL
+) |> 
+  filter(year(time) != 2025)
 
 
 ### ------------------------------------------------ At the Province level -----
@@ -62,7 +64,7 @@ morbi_reg <- morbidity|>
       ) ~ "south", 
       location %in% c(
         "Farah", "Nimroz"
-      ) ~ "west", 
+      ) ~ "West", 
       location %in% c(
         "Urozgan", "Daikundi", "Bamyan", "Wardak", "Parwan", "Kabul", "Kapisa",
         "Panjshir"
@@ -72,12 +74,13 @@ morbi_reg <- morbidity|>
   ) |> 
   mutate(
     regions = case_when(
-      regions %in% c("central", "east") ~ "central-east",
-      regions %in% c("north", "south") ~ "north-south",
-      .default = "west"
+      regions %in% c("central", "east") ~ "Central-East",
+      regions %in% c("north", "south") ~ "North-South",
+      .default = "West"
     )
   ) |> 
   summarise_admissions_morb(
     .group = TRUE,
     location = regions
-  )
+  ) |> 
+  filter(year(time) != 2025)
