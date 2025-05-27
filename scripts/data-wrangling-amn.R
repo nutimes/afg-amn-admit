@@ -80,7 +80,7 @@ reg <- admissions |>
       ) ~ "south", 
       province %in% c(
         "Farah", "Nimroz"
-      ) ~ "west", 
+      ) ~ "West", 
       province %in% c(
         "Urozgan", "Daikundi", "Bamyan", "Wardak", "Parwan", "Kabul", "Kapisa",
         "Panjshir"
@@ -90,9 +90,9 @@ reg <- admissions |>
   ) |> 
   mutate(
     regions = case_when(
-      regions %in% c("central", "east") ~ "central-east",
-      regions %in% c("north", "south") ~ "north-south",
-      .default = "west"
+      regions %in% c("central", "east") ~ "Central-East",
+      regions %in% c("north", "south") ~ "North-South",
+      .default = "West"
     )
   ) |> 
   summarise_admissions(

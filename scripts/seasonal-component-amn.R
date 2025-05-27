@@ -94,7 +94,7 @@ cmpnts_ntnl |>
 #### Whole time series ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "north-south") |>
+  filter(regions == "North-South") |>
   gg_season(y = season_year) +
   labs(
     colour = "Year",
@@ -111,7 +111,7 @@ cmpnts_regional |>
 #### Before 2016 ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "north-south") |>
+  filter(regions == "North-South") |>
   filter(year(time) < 2016) |>
   gg_season(y = season_year) +
   labs(
@@ -129,7 +129,7 @@ cmpnts_regional |>
 #### Between 2016 and 2019 ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "north-south") |>
+  filter(regions == "North-South") |>
   filter(year(time) >= 2016 & year(time) <= 2019) |>
   gg_season(y = season_year) +
   labs(
@@ -147,7 +147,7 @@ cmpnts_regional |>
 #### Between 2020 and 2021 ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "north-south") |>
+  filter(regions == "North-South") |>
   filter(year(time) > 2019 & year(time) < 2022) |>
   gg_season(y = season_year) +
   labs(
@@ -165,7 +165,7 @@ cmpnts_regional |>
 #### As of 2022 ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "north-south") |>
+  filter(regions == "North-South") |>
   filter(year(time) >= 2022) |>
   gg_season(y = season_year) +
   labs(
@@ -185,7 +185,7 @@ cmpnts_regional |>
 #### Whole time series ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "central-east") |>
+  filter(regions == "Central-East") |>
   gg_season(y = season_year) +
   labs(
     colour = "Year",
@@ -202,7 +202,7 @@ cmpnts_regional |>
 #### Before 2016 ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "central-east") |>
+  filter(regions == "Central-East") |>
   filter(year(time) < 2016) |>
   gg_season(y = season_year) +
   labs(
@@ -220,7 +220,7 @@ cmpnts_regional |>
 #### Between 2016 and 2019 ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "central-east") |>
+  filter(regions == "Central-East") |>
   filter(year(time) >= 2016 & year(time) <= 2019) |>
   gg_season(y = season_year) +
   labs(
@@ -238,7 +238,7 @@ cmpnts_regional |>
 #### Between 2020 and 2021 ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "central-east") |>
+  filter(regions == "Central-East") |>
   filter(year(time) >= 2020 & year(time) < 2022) |>
   gg_season(y = season_year) +
   labs(
@@ -256,7 +256,7 @@ cmpnts_regional |>
 #### As of 2022 ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "central-east") |>
+  filter(regions == "Central-East") |>
   filter(year(time) >= 2022) |>
   gg_season(y = season_year) +
   labs(
@@ -276,7 +276,7 @@ cmpnts_regional |>
 #### Whole time series ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "west") |>
+  filter(regions == "West") |>
   gg_season(y = season_year) +
   labs(
     colour = "Year",
@@ -293,7 +293,7 @@ cmpnts_regional |>
 #### Before 2015 ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "west") |>
+  filter(regions == "West") |>
   filter(year(time) < 2015) |>
   gg_season(y = season_year) +
   labs(
@@ -311,7 +311,7 @@ cmpnts_regional |>
 #### Between 2016 and 2017 ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "west") |>
+  filter(regions == "West") |>
   filter(year(time) >= 2016 & year(time) < 2018) |>
   gg_season(y = season_year) +
   labs(
@@ -329,7 +329,7 @@ cmpnts_regional |>
 #### Between 2018 and 2019 ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "west") |>
+  filter(regions == "West") |>
   filter(year(time) >= 2018 & year(time) < 2020) |>
   gg_season(y = season_year) +
   labs(
@@ -347,7 +347,7 @@ cmpnts_regional |>
 #### Between 2020 and 2021 ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "west") |>
+  filter(regions == "West") |>
   filter(year(time) >= 2020 & year(time) < 2022) |>
   gg_season(y = season_year) +
   labs(
@@ -365,7 +365,7 @@ cmpnts_regional |>
 #### As of 2021 ----
 cmpnts_regional |>
   select(season_year) |>
-  filter(regions == "west") |>
+  filter(regions == "West") |>
   filter(year(time) > 2021) |>
   gg_season(y = season_year) +
   labs(
