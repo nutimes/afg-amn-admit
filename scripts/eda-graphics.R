@@ -1,11 +1,11 @@
-################################################################################
+# ==============================================================================
 #                           EXPLORATORY DATA ANALYIS
-################################################################################
+# ==============================================================================
 
 
 ## ---- National level ---------------------------------------------------------
 
-### ------------------------------------------------------------- Time plot ----
+### Time plot ----
 tsplot <- na |>
   autoplot(.vars = .admissions) +
   xlab("Time [1M]") +
@@ -18,7 +18,7 @@ tsplot <- na |>
     plot.title = element_text(size = 12)
   )
 
-### --------------------------------------------------------- Seasonal Plot ----
+### Seasonal Plot ----
 na |>
   gg_season(
     y = .admissions,
@@ -36,7 +36,7 @@ na |>
     plot.title = element_text(size = 12)
   )
 
-### ------------------------------------------------ Admissions before 2022 ----
+#### Admissions before 2022 ----
 na |>
   filter(year(time) < 2022) |>
   gg_season(
@@ -55,7 +55,7 @@ na |>
     plot.title = element_text(size = 12)
   )
 
-### ------------------------------------------------- Admissions as of 2022 ----
+#### Admissions as of 2022 ----
 na |>
   filter(year(time) >= 2022) |>
   gg_season(
@@ -76,8 +76,7 @@ na |>
 
 ## ---- Regional level ---------------------------------------------------------
 
-### ------------------------------------------------------------- Time plot ----
-
+### Time plot ----
 reg |>
   autoplot(.vars = .admissions) +
   facet_wrap(vars(regions), scales = "fixed") +
@@ -94,6 +93,7 @@ reg |>
     plot.title = element_text(size = 12)
   )
 
+### Seasonal Plot ----
 reg |>
   gg_season(y = .admissions) +
   facet_wrap(vars(regions), scales = "free_y") +
@@ -107,4 +107,4 @@ reg |>
     plot.title = element_text(size = 12)
   )
 
-################################ End of Workflow ###############################
+# ============================== End of Workflow ===============================

@@ -1,8 +1,10 @@
-################################################################################
-#                                DECOMPOSITION                                 #
-################################################################################
+# ==============================================================================
+#                                DECOMPOSITION                                 
+# ==============================================================================
 
 ## ---- Decomposition at the national level ------------------------------------
+
+### Decomponse and get the components ----
 cmpnts_morbi_ntln <- morbi_ntln |>
   model(
     STL(
@@ -13,6 +15,8 @@ cmpnts_morbi_ntln <- morbi_ntln |>
 
 
 ## ---- Decomposition at the regional level ------------------------------------
+
+### Decomponse and get the components ----
 cmpnts_morbi_reg <- morbi_reg |>
   model(
     STL(
@@ -20,3 +24,5 @@ cmpnts_morbi_reg <- morbi_reg |>
     )
   ) |> 
   components()
+
+# ============================== End of Workflow ===============================

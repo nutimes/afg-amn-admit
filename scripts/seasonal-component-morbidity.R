@@ -1,11 +1,29 @@
-################################################################################
-#                      EVOLUTION OF THE SEASONAL COMPONENT                     #
-################################################################################
+# ==============================================================================
+#                      EVOLUTION OF THE SEASONAL COMPONENT                     
+# ==============================================================================
 
-## ---- The Seasonal Component -------------------------------------------------
+## ---- At the national level --------------------------------------------------
 
-### ----------------------------------------------------------- North-South ----
-#### All types of morbidity ----
+### All types of morbidity ----
+cmpnts_morbi_ntln |>
+  select(season_year) |>
+  select(-.model) |> 
+  gg_season(y = season_year) +
+  labs(
+    colour = "Year",
+    y = "Seasonal effect",
+    x = "Time [1M]"
+  ) +
+  theme(
+    plot.subtitle = element_text(colour = "#706E6D"),
+    plot.caption = element_text(colour = "#706E6D"),
+    axis.title.y = element_text(size = 10, margin = margin(r = 5)),
+    axis.title.x = element_text(size = 10, margin = margin(t = 5))
+  )
+
+## ---- North-South ------------------------------------------------------------
+
+### All types of morbidity ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "North-South") |>
@@ -23,7 +41,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### ARI-only ----
+### ARI-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "North-South" & morbidity == "ARI") |>
@@ -40,7 +58,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### AWD-only ----
+### AWD-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "North-South" & morbidity == "AWD") |>
@@ -57,7 +75,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### Malaria-only ----
+### Malaria-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "North-South" & morbidity == "Malaria") |>
@@ -74,7 +92,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### Measleas-only ----
+### Measleas-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "North-South" & morbidity == "Measleas") |>
@@ -91,7 +109,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### Pneumonia-only ----
+### Pneumonia-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "North-South" & morbidity == "Pneumonia") |>
@@ -108,8 +126,9 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-### ---------------------------------------------------------- Central-East ----
-#### All types of morbidity ----
+### ---- Central-East ----------------------------------------------------------
+
+### All types of morbidity ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "Central-East") |>
@@ -127,7 +146,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### ARI-only ----
+### ARI-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "Central-East" & morbidity == "ARI") |>
@@ -144,7 +163,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### AWD-only ----
+### AWD-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "Central-East" & morbidity == "AWD") |>
@@ -161,7 +180,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### Malaria-only ----
+### Malaria-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "Central-East" & morbidity == "Malaria") |>
@@ -178,7 +197,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### Measleas-only ----
+### Measleas-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "Central-East" & morbidity == "Measleas") |>
@@ -195,7 +214,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### Pneumonia-only ----
+### Pneumonia-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "Central-East" & morbidity == "Pneumonia") |>
@@ -213,8 +232,9 @@ cmpnts_morbi_reg |>
   )
 
 
-### ------------------------------------------------------------------ West ----
-#### All types of morbidity ----
+## ---- West -------------------------------------------------------------------
+
+### All types of morbidity ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "West") |>
@@ -232,7 +252,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### ARI-only ----
+### ARI-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "West" & morbidity == "ARI") |>
@@ -249,7 +269,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### AWD-only ----
+### AWD-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "West" & morbidity == "AWD") |>
@@ -266,7 +286,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### Malaria-only ----
+### Malaria-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "West" & morbidity == "Malaria") |>
@@ -283,7 +303,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### Measleas-only ----
+### Measleas-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "West" & morbidity == "Measleas") |>
@@ -300,7 +320,7 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-#### Pneumonia-only ----
+### Pneumonia-only ----
 cmpnts_morbi_reg |>
   select(season_year) |>
   filter(regions == "West" & morbidity == "Pneumonia") |>
@@ -317,3 +337,4 @@ cmpnts_morbi_reg |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
+# ============================== End of Workflow ===============================

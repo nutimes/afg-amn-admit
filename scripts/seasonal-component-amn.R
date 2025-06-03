@@ -1,8 +1,9 @@
-################################################################################
-#                      EVOLUTION OF THE SEASONAL COMPONENT                     #
-################################################################################
+# ==============================================================================
+#                      EVOLUTION OF THE SEASONAL COMPONENT                     
+# ==============================================================================
 
 ## ---- The Seasonal Component -------------------------------------------------
+
 cmpnts_ntnl |>
   select(season_year) |>
   gg_season(y = season_year) +
@@ -18,7 +19,8 @@ cmpnts_ntnl |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-## ---- The Seasonal Component before 2015 ------------------------------------
+## ---- The Seasonal Component before 2015 -------------------------------------
+
 cmpnts_ntnl |>
   select(season_year) |>
   filter(year(time) < 2016) |>
@@ -35,7 +37,7 @@ cmpnts_ntnl |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-### ---- The Seasonal Component between 2016 and 2019 --------------------------
+### The Seasonal Component between 2016 and 2019 ----
 cmpnts_ntnl |>
   select(season_year) |>
   filter(year(time) >= 2016 & year(time) < 2020) |>
@@ -52,7 +54,7 @@ cmpnts_ntnl |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-### ---- The Seasonal Component between 2020 and 2022 --------------------------
+### The Seasonal Component between 2020 and 2022 ----
 cmpnts_ntnl |>
   select(season_year) |>
   filter(year(time) >= 2020 & year(time) < 2022) |>
@@ -70,7 +72,7 @@ cmpnts_ntnl |>
   )
 
 
-### ---- The Seasonal Component as of 2022 -------------------------------------
+### The Seasonal Component as of 2022 ----
 cmpnts_ntnl |>
   select(season_year) |>
   filter(year(time) >= 2022) |>
@@ -89,8 +91,7 @@ cmpnts_ntnl |>
 
 ## ---- By Regions -------------------------------------------------------------
 
-### --------------------------------------------------- North-South Regions ----
-
+### North-South Regions ----
 #### Whole time series ----
 cmpnts_regional |>
   select(season_year) |>
@@ -180,9 +181,9 @@ cmpnts_regional |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-### -------------------------------------------------- Central-East Regions ----
+## ---- Central-East Regions ---------------------------------------------------
 
-#### Whole time series ----
+### Whole time series ----
 cmpnts_regional |>
   select(season_year) |>
   filter(regions == "Central-East") |>
@@ -271,7 +272,7 @@ cmpnts_regional |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-### ----------------------------------------------------------- West Region ----
+## ---- West Region ------------------------------------------------------------
 
 #### Whole time series ----
 cmpnts_regional |>
@@ -380,4 +381,4 @@ cmpnts_regional |>
     axis.title.x = element_text(size = 10, margin = margin(t = 5))
   )
 
-############################### End of Workflow ################################
+# ============================= End of Workflow ================================
