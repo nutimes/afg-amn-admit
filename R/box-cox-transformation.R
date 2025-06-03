@@ -17,14 +17,14 @@ row_wise_box_cox <- function(admissions, regions, lambdas) {
   regions_levels <- levels(factor(regions))
   lambdas <- lambdas
   
-  # Initialize output vector with same length as admissions
+  # Initialize output vector with same length as admissions ----
   .admissions <- numeric(length(admissions))
   
   for (i in seq_along(regions_levels)) {
     reg <- regions_levels[i]
     lambda <- lambdas[i]
     
-    # Apply Box-Cox to subset of admissions by lsystems category
+    # Apply Box-Cox to subset of admissions by lsystems category ----
     idx <- regions == reg
     .admissions[idx] <- box_cox(admissions[idx], lambda = lambda)
   }

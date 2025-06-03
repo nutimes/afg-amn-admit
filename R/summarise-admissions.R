@@ -105,8 +105,7 @@ summarise_admissions_morb <- function(.ts, .group = TRUE, location = NULL) {
       )
   } else {
     .ts <- .ts |>
-      select(time, .admissions) |>
-      group_by(time) |>
+      group_by(morbidity, time) |>
       summarise(
         .admissions = sum(.admissions, na.rm = TRUE),
         .groups = "drop"

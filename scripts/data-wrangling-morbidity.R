@@ -1,8 +1,10 @@
-################################################################################
-#                             WRANGLE MORBIDITY DATA                           #
-################################################################################
+# ==============================================================================
+#                             WRANGLE MORBIDITY DATA                           
+# ==============================================================================
 
-## ---- Prepara the data -------------------------------------------------------
+## ---- Wrangle the data -------------------------------------------------------
+
+### Prepara the data ----
 morbidity <- raw_data_morbidity |> 
   rename(
     morbidity = OPD.morbidity,
@@ -24,7 +26,7 @@ morbidity <- raw_data_morbidity |>
     time = yearmonth(time)
   )
 
-### ------------------------------------------------------- Recode diseases ----
+### Recode diseases ----
 morbidity <- morbidity |> 
   mutate(
     morbidity = case_when(
@@ -41,16 +43,15 @@ morbidity <- morbidity |>
 
 ## ---- Summarise admissions ---------------------------------------------------
 
-### ------------------------------------------------- At the National level ----
+### At the National level ----
 morbi_ntln <- summarise_admissions_morb(
   .ts = morbidity,
-  .group = FALSE, 
   location = NULL
 ) |> 
   filter(year(time) != 2025)
 
 
-### ------------------------------------------------ At the Province level -----
+### At the Province level -----
 morbi_reg <- morbidity|>
   mutate(
     regions = case_when(
@@ -84,3 +85,5 @@ morbi_reg <- morbidity|>
     location = regions
   ) |> 
   filter(year(time) != 2025)
+
+# ============================== End of Workflow ===============================

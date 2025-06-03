@@ -1,6 +1,6 @@
-################################################################################
-#                                DATA WRANGLING                                #
-################################################################################
+# ==============================================================================
+#                                DATA WRANGLING                                
+# ==============================================================================
 
 ## ---- Prepara the data -------------------------------------------------------
 
@@ -34,15 +34,15 @@ admissions <- raw_data |>
     -c(year, quarter, month, sam_cases, mam_cases, day)
   )
 
-### ------------------------------------------ Exclude 2012 and 2025's data ----
+### Exclude 2012 and 2025's data ----
 admissions <- admissions |>
   filter(
     time >= yearmonth("2013 Jan") & time <= yearmonth("2024 Dec")
   )
 
-### -------------------------------------------------- Summarise admissions ----
+## ----Summarise admissions ----------------------------------------------------
 
-### ------------------------------------------------- At the National level ----
+### At the National level ----
 na <- admissions |>
   summarise_admissions(
     .group = FALSE,
@@ -66,7 +66,7 @@ nabx <- na |>
     )
   )
 
-### ------------------------------------------------ At the Province level -----
+### At the Province level -----
 reg <- admissions |>
   mutate(
     regions = case_when(
@@ -100,7 +100,7 @@ reg <- admissions |>
     time = "M"
   )
 
-### ------------------------------------------ Apply Box-Cox transformation ----
+### Apply Box-Cox transformation ----
 #### Get lambdas ----
 lambda_regions <- reg |> 
   features(
@@ -123,4 +123,4 @@ reg_bxcx <- reg |>
     )
   )
 
-############################### End of Workflow ################################
+# ============================== End of Workflow ===============================
