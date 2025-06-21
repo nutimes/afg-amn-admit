@@ -1,3 +1,5 @@
-# Ignore files in data/
+# Ignore files
 data/afg-shp/
 data/afghanistan-shp.zip
+.quarto/
+.vscode/
