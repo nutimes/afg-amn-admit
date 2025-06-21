@@ -64,7 +64,7 @@ morbi_reg <- morbidity|>
         "Paktia", "Khost", "Logar"
       ) ~ "south", 
       location %in% c(
-        "Farah", "Nimroz"
+        "Farah", "Nimruz"
       ) ~ "West", 
       location %in% c(
         "Urozgan", "Daikundi", "Bamyan", "Wardak", "Parwan", "Kabul", "Kapisa",
