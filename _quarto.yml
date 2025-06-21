@@ -1,0 +1,21 @@
+project: 
+  type: default
+  output-dir: reports
+
+date: today
+date-formate: "DD MMMM YYYY"
+
+format: 
+  revealjs: 
+    theme: default
+    embed-resources: true
+    width: 1280
+    height: 720
+    slide-number: true
+    execute:
+      eval: true
+      echo: false
+      warning: false
+      message: false
+    progress: true
+    fig-responsive: true
