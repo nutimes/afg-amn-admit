@@ -1,0 +1,337 @@
+---
+title: "Understanding seasonal patterns of acute malnutrition and common childhood diseases in Afghanistan"
+subtitle: "Evidence from 14 and five years of admission data on acute malnutrition and diseases, respectively"
+---
+
+```{r}
+#| label: source-project
+Sys.setenv(path_secret_key = "~/.ssh/id_rsa")
+suppressMessages(source(file = "script.R"))
+```
+
+## Background
+
+::: {.incremental}
+* Seasonality/seasonal variation refers to recurring patterns at specific times of the year. 
+&nbsp;
+* It has impact on the underlying and immediate factors that drives acute malnutrition (AMN). 
+&nbsp;
+* It is known that AMN has a seasonal variation, however limited evidence is available to substantiate that.  
+  + Stakeholders often rely on assumptions of an AMN seasonal peak during the food security lean season.  
+    + Nutrition surveys are routinely timed to coincide with the lean season each year. 
+::: 
+
+## Objective
+
+* Understand the seasonal patterns of acute malnutrition and the most common childhood diseases, in order to provide evidence-based inputs for IPC AMN analysis parameters and to inform the timing of nutrition data collection in Afghanistan
+
+## Methods {.smaller}
+:::: {.columns}
+::: {.column style="text-align: left"}
+#### Source of data
+
+* **Fourteen years** of admission data on acute malnutrition into the country's treatment programme
+    + Data was provided: 
+        - Broken down by severe acute malnutrition (SAM) and moderate acute malnutrition cases
+            - These were aggregated to form the Global Acute Malnutriton (GAM)
+    + Broken down by provinces (all of them)
+
+* Five years of admission data on child diseases
+:::
+::: {.column style="text-align: left"}
+
+#### Analysis
+
+* **Exploratory (visual) data analysis**: to inspect possible underneath patterns
+    + If: 
+        - patterns were similar across provinces: 
+            - aggregate data as National
+    + Otherwise: 
+        - Analyse the provinces with distinct patterns as one
+
+* **Time series decomposition**: a **process** of **extracting** the underlying **trend** and **seasonal variation** from the time series
+
+* Current seasonal variation was determined on the basis of the patterns exihibited over the last three years  
+
+:::
+::::
+
+# Results
+* **Acute Malnutrition**
+
+## {.smaller}
+### A glance at the evolution of admissions over time (1/2)
+
+```{r}
+#| label: time-plot
+#| fig-width: 17
+#| fig-height: 8
+tsplot
+```
+
+## {.smaller}
+### A glance at the evolution of admissions over time (2/2)
+```{r}
+#| label: time-plot-year
+#| fig-width: 12
+#| fig-height: 4.3
+tsplot_byear
+```
+
+#### Key messages
+
++ The level of admissions rose as of September 2021, like never seen before. It reached its highest point in December 2021 with **over 150K cases**. Thereafter, it remained high over time, like never seen before as well. 
+
+::: {.callout-important}
+## Question?
+What may have hapenned in the 3rd quarter of 2021 and thereafter?
+:::
+
+## 
+### The components
+
+```{r}
+#| label: components
+#| fig-height: 8
+#| fig-width: 16
+cmpnts_ntnl_plot
+```
+
+## 
+### Seasonal patters - National 
+```{r}
+#| label: seasonal-national
+#| fig-width: 17
+#| fig-height: 8
+ss_ntnl
+```
+
+## {.smaller}
+### Evolution of the seasonal pattern over time
+```{r}
+#| label: evolution-seasonality-national
+#| fig-width: 12
+#| fig-height: 4.8
+#| fig-subcap: 
+#|   - "Before 2015"
+#|   - "Between 2016 and 2019"
+#|   - "Between 2020 and 2022"
+#|   - "As of 2022"
+#| layout-nrow: 2
+#| layout-ncol: 2
+ss_ntnl_b2015
+ss_ntnl_2016_2019
+ss_ntnl_2020_2022
+ss_ntnl_asof2022
+```
+
+## {.smaller}
+### Seasonal patters in Farah and Nimrus Provinces (1/2)
+```{r}
+#| label: seasonal-nimrus-farah
+#| fig-width: 17
+#| fig-height: 8
+nimurs_farah
+```
+
+## {.smaller}
+### Evolution of the seasonal pattern over time in Farah and Nimrus Provinces 
+```{r}
+#| label: evolution-seasonality-nimfarh
+#| fig-width: 12
+#| fig-height: 5.8
+#| fig-subcap: 
+#|   - "Before 2015"
+#|   - "Between 2016 and 2017"
+#|   - "Between 2018 and 2019"
+#|   - "Between 2020 and 2021"
+#|   - "As of 2021"
+#| layout-nrow: 2
+#| layout-ncol: 3
+nimurs_farah_b2015
+nimurs_farah2016_2017
+nimurs_farah2018_2019
+nimurs_farah_2020_2021
+nimurs_farah_asof2021
+```
+
+# Translating graphs into seasonal calendars 🗓️
+
+## {.smaller}
+### AMN seasonal calendar 
+::: {.gantt-seasonality-amn}
+```{mermaid}
+%%| label: amn-seasonal-calendar
+%%| fig-cap-location: bottom
+%%| fig-height: 5
+%%| fig-width: 14
+gantt
+    title  AMN seasonal calendar based on the pattens as of 2022
+    dateFormat M
+    axisFormat %b
+    todayMarker off
+
+    section National
+    Nadir :1, 6
+    Peak : 6, 7
+    Nadir: 7, 8
+    High peak :8, 10
+    Nadir :10, 12
+
+    section Farah and Nimruz
+    Nadir :1, 6
+    Peak : 6, 7
+    Nadir: 7, 9
+    High peak :9, 11
+    Nadir :11, 12
+
+```
+:::
+
+* **Key message**
+    + 2 High AMN seasons
+        - In Farah and Nimruz Provinces, the high-peak exhibits a slight shift compared to the national
+    + 1 Long low AMN season
+
+# Results
+* **Common childhood diseases**
+
+## {.smaller}
+### A glance at the evolution of admissions over time
+
+```{r}
+#| label: time-plot-disease
+#| fig-width: 17
+#| fig-height: 8
+morbi_ntln |> 
+    autoplot()
+```
+
+## {.smaller}
+### The components
+
+```{r}
+#| label: components-morbi
+#| fig-width: 17
+#| fig-height: 8
+cmpnts_morbi_ntnl_plot
+```
+
+## {.smaller}
+### Seasonal patters - National 
+```{r}
+#| label: seasonal-national-morbi
+#| fig-width: 17
+#| fig-height: 8
+seasonal_morbi_ntln
+```
+
+# Translating graphs into seasonal calendars 🗓️
+
+## {.smaller}
+### Child morbidity seasonal calendar 
+
+<br> 
+
+::: {.gantt-seasonality-morbi}
+```{mermaid}
+%%| label: morbi-seasonal-calendar
+%%| fig-cap-location: bottom
+%%| fig-height: 5
+%%| fig-width: 14
+gantt
+    title  Child morbidity seasonal calendar
+    dateFormat M
+    axisFormat %b
+    todayMarker off
+
+    section Acute Respiratory Infections
+    Stable (high) :1, 3
+    Decrease : 3, 7
+    Increase: 7, 12
+
+    section Pneumonia
+    Stable (high) :1, 3
+    Decrease : 3, 7
+    Increase: 7, 12
+
+    section AWD
+    Decrease : 1, 3
+    Increase : 3, 8
+    Decrease : 8, 12
+
+    section Malaria
+    Decrease : 1, 4
+    Increase : 4, 9
+    Decrease : 9, 12
+
+    section Measles
+    Decrease : 1, 2
+    Increase : 2, 4
+    Decrease : 4, 12
+
+```
+:::
+
+
+## {.smaller}
+### AMN, child morbidities and AFI seasonal calendars
+::: {.gantt-seasonality-amn-factors}
+```{mermaid}
+%%| label: amn-factors-seasonal-calendar
+%%| fig-cap-location: bottom
+%%| fig-height: 7
+%%| fig-width: 14
+
+gantt
+    title  AMN, child morbidity and AFI seasonal calendar
+    dateFormat M
+    axisFormat %b
+    todayMarker off
+
+    section National AMN
+    Nadir :1, 6
+    Peak : 6, 7
+    Nadir: 7, 8
+    High peak :8, 10
+    Nadir :10, 12
+
+    section Farah and Nimruz's AMN
+    Nadir :1, 6
+    Peak : 6, 7
+    Nadir: 7, 9
+    High peak :9, 11
+    Nadir :11, 12
+
+    section Acute Respiratory Infections
+    Stable (high) :1, 3
+    Decrease : 3, 7
+    Increase: 7, 12
+
+    section Pneumonia
+    Stable (high) :1, 3
+    Decrease : 3, 7
+    Increase: 7, 12
+
+    section AWD
+    Decrease : 1, 3
+    Increase : 3, 8
+    Decrease : 8, 12
+
+    section Malaria
+    Decrease : 1, 4
+    Increase : 4, 9
+    Decrease : 9, 12
+
+    section Measles
+    Decrease : 1, 2
+    Increase : 2, 4
+    Decrease : 4, 12
+
+    section Acute Food Insecurity
+    Lean : 1, 4
+    Harvest : 4, 7
+    Post-harvest : 7, 12
+
+```
+:::
