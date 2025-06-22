@@ -19,3 +19,5 @@ format:
       message: false
     progress: true
     fig-responsive: true
+    pdf-export: true
+    css: styles-revealjs.css
