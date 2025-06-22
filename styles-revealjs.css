@@ -1,0 +1,129 @@
+/* Style for the main title */
+h1.title {
+    font-size: 70px;
+    color: #1A4D8F;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Style for titles one, two and three */
+.reveal h1, .reveal h2, .reveal h3 {color:#1A4D8F;}
+
+/* Style for body text */
+.reveal p {color:#4A4A4A;}
+
+/* Style for subtitle */
+p.subtitle {
+  font-size: 35px;
+  color:#1A4D8F;
+  text-align: center;
+}
+
+/* Style for date */
+p.date {
+  font-size: 25px;
+  text-align: center;
+  color:#1A4D8F;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Style the seasonal calendar ------------------------------------------*/
+
+/* ----------------------------------------------------- High AMN season ---- */
+.gantt-seasonality-amn #task2,
+.gantt-seasonality-amn #task4,
+.gantt-seasonality-amn #task7,
+.gantt-seasonality-amn #task9 {
+  fill:#FF4500 !important;
+  stroke:#FF4500  !important;
+  stroke-width: 2px;
+}
+
+/* ------------------------------------------------------ Low AMN season ---- */
+.gantt-seasonality-amn #task1,
+.gantt-seasonality-amn #task3,
+.gantt-seasonality-amn #task5,
+.gantt-seasonality-amn #task6,
+.gantt-seasonality-amn #task8,
+.gantt-seasonality-amn #task10 {
+  fill:#1E90FF !important;
+  stroke:#1E90FF  !important;
+  stroke-width: 2px;
+}
+
+/* ---- Style the seasonal calendar of morbidities  --------------------------*/
+
+/* --------------------------------------------------- Increase in cases ---- */
+
+.gantt-seasonality-morbi #task1,
+.gantt-seasonality-morbi #task3,
+.gantt-seasonality-morbi #task4,
+.gantt-seasonality-morbi #task6,
+.gantt-seasonality-morbi #task8,
+.gantt-seasonality-morbi #task11,
+.gantt-seasonality-morbi #task14 {
+  fill:#FF4500 !important;
+  stroke:#FF4500  !important;
+  stroke-width: 2px;
+}
+
+/* --------------------------------------------------- Decrease in cases ---- */
+
+.gantt-seasonality-morbi #task2,
+.gantt-seasonality-morbi #task5,
+.gantt-seasonality-morbi #task7,
+.gantt-seasonality-morbi #task9,
+.gantt-seasonality-morbi #task10,
+.gantt-seasonality-morbi #task12,
+.gantt-seasonality-morbi #task13,
+.gantt-seasonality-morbi #task15{
+  fill:#1E90FF !important;
+  stroke:#1E90FF  !important;
+  stroke-width: 2px;
+}
+
+/* ----------------------------------- AMN, Morbidity and AFI altogether ---- */
+
+.gantt-seasonality-amn-factors #task2,
+.gantt-seasonality-amn-factors #task4,
+.gantt-seasonality-amn-factors #task7,
+.gantt-seasonality-amn-factors #task9,
+.gantt-seasonality-amn-factors #task11,
+.gantt-seasonality-amn-factors #task13,
+.gantt-seasonality-amn-factors #task14,
+.gantt-seasonality-amn-factors #task16,
+.gantt-seasonality-amn-factors #task18,
+.gantt-seasonality-amn-factors #task21,
+.gantt-seasonality-amn-factors #task24,
+.gantt-seasonality-amn-factors #task26 {
+  fill:#FF4500 !important;
+  stroke:#FF4500  !important;
+  stroke-width: 2px;
+}
+
+
+.gantt-seasonality-amn-factors #task1,
+.gantt-seasonality-amn-factors #task3,
+.gantt-seasonality-amn-factors #task5,
+.gantt-seasonality-amn-factors #task6,
+.gantt-seasonality-amn-factors #task8,
+.gantt-seasonality-amn-factors #task10,
+.gantt-seasonality-amn-factors #task12,
+.gantt-seasonality-amn-factors #task15,
+.gantt-seasonality-amn-factors #task17,
+.gantt-seasonality-amn-factors #task19,
+.gantt-seasonality-amn-factors #task20,
+.gantt-seasonality-amn-factors #task22,
+.gantt-seasonality-amn-factors #task23,
+.gantt-seasonality-amn-factors #task25, 
+.gantt-seasonality-amn-factors #task27,
+.gantt-seasonality-amn-factors #task28  {
+  fill:#1E90FF !important;
+  stroke:#1E90FF  !important;
+  stroke-width: 2px;
+}
