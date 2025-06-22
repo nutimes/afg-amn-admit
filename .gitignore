@@ -3,3 +3,5 @@ data/afg-shp/
 data/afghanistan-shp.zip
 .quarto/
 .vscode/
+
+/.quarto/
