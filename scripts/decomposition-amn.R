@@ -32,11 +32,12 @@ cmpnts_ntnl <- nabx |>
   )
 
 ### Visualise components ----
-cmpnts_ntnl |>
+cmpnts_ntnl_plot <- cmpnts_ntnl |>
   autoplot() +
   labs(
     title = "The Components of the Acute Malnutrition Admission at the National Level",
-    subtitle = "The amplitude of the peak flattned as of 2015"
+    subtitle = "",
+    x = "Time[1M]"
   ) +
   theme(
     plot.subtitle = element_text(colour = "#706E6D"),

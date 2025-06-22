@@ -4,7 +4,7 @@
 
 ## ---- The Seasonal Component -------------------------------------------------
 
-cmpnts_ntnl |>
+ss_ntnl <- cmpnts_ntnl |>
   select(season_year) |>
   gg_season(y = season_year) +
   labs(
@@ -21,7 +21,7 @@ cmpnts_ntnl |>
 
 ## ---- The Seasonal Component before 2015 -------------------------------------
 
-cmpnts_ntnl |>
+ss_ntnl_b2015 <- cmpnts_ntnl |>
   select(season_year) |>
   filter(year(time) < 2016) |>
   gg_season(y = season_year) +
@@ -38,7 +38,7 @@ cmpnts_ntnl |>
   )
 
 ### The Seasonal Component between 2016 and 2019 ----
-cmpnts_ntnl |>
+ss_ntnl_2016_2019 <- cmpnts_ntnl |>
   select(season_year) |>
   filter(year(time) >= 2016 & year(time) < 2020) |>
   gg_season(y = season_year) +
@@ -55,7 +55,7 @@ cmpnts_ntnl |>
   )
 
 ### The Seasonal Component between 2020 and 2022 ----
-cmpnts_ntnl |>
+ss_ntnl_2020_2022 <- cmpnts_ntnl |>
   select(season_year) |>
   filter(year(time) >= 2020 & year(time) < 2022) |>
   gg_season(y = season_year) +
@@ -73,7 +73,7 @@ cmpnts_ntnl |>
 
 
 ### The Seasonal Component as of 2022 ----
-cmpnts_ntnl |>
+ss_ntnl_asof2022 <- cmpnts_ntnl |>
   select(season_year) |>
   filter(year(time) >= 2022) |>
   gg_season(y = season_year) +
@@ -275,7 +275,7 @@ cmpnts_regional |>
 ## ---- West Region ------------------------------------------------------------
 
 #### Whole time series ----
-cmpnts_regional |>
+nimurs_farah <- cmpnts_regional |>
   select(season_year) |>
   filter(regions == "West") |>
   gg_season(y = season_year) +
@@ -292,7 +292,7 @@ cmpnts_regional |>
   )
 
 #### Before 2015 ----
-cmpnts_regional |>
+nimurs_farah_b2015 <- cmpnts_regional |>
   select(season_year) |>
   filter(regions == "West") |>
   filter(year(time) < 2015) |>
@@ -310,7 +310,7 @@ cmpnts_regional |>
   )
 
 #### Between 2016 and 2017 ----
-cmpnts_regional |>
+nimurs_farah2016_2017 <- cmpnts_regional |>
   select(season_year) |>
   filter(regions == "West") |>
   filter(year(time) >= 2016 & year(time) < 2018) |>
@@ -328,7 +328,7 @@ cmpnts_regional |>
   )
 
 #### Between 2018 and 2019 ----
-cmpnts_regional |>
+nimurs_farah2018_2019 <- cmpnts_regional |>
   select(season_year) |>
   filter(regions == "West") |>
   filter(year(time) >= 2018 & year(time) < 2020) |>
@@ -346,7 +346,7 @@ cmpnts_regional |>
   )
 
 #### Between 2020 and 2021 ----
-cmpnts_regional |>
+nimurs_farah_2020_2021 <- cmpnts_regional |>
   select(season_year) |>
   filter(regions == "West") |>
   filter(year(time) >= 2020 & year(time) < 2022) |>
@@ -364,7 +364,7 @@ cmpnts_regional |>
   )
 
 #### As of 2021 ----
-cmpnts_regional |>
+nimurs_farah_asof2021 <- cmpnts_regional |>
   select(season_year) |>
   filter(regions == "West") |>
   filter(year(time) > 2021) |>

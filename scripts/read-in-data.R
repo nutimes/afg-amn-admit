@@ -33,7 +33,8 @@ read_afghanistan_shp(
 
 afg <- sf::st_read(
   dsn = "data/afg-shp",
-  layer = "geoBoundaries-AFG-ADM1"
+  layer = "geoBoundaries-AFG-ADM1", 
+  quiet = TRUE
 )
 
 # ============================== End of Workflow ===============================
