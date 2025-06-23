@@ -19,7 +19,7 @@ tsplot <- na |>
   )
 
 ### Seasonal Plot ----
-na |>
+tsplot_byear <- na |>
   gg_season(
     y = .admissions,
     labels = "right"

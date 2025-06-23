@@ -5,7 +5,7 @@
 ## ---- At the national level --------------------------------------------------
 
 ### All types of morbidity ----
-cmpnts_morbi_ntln |>
+seasonal_morbi_ntln <- cmpnts_morbi_ntln |>
   select(season_year) |>
   select(-.model) |> 
   gg_season(y = season_year) +
