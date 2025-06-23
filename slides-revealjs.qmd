@@ -331,7 +331,8 @@ gantt
     section Acute Food Insecurity
     Lean : 1, 4
     Harvest : 4, 7
-    Post-harvest : 7, 12
+    Post-harvest : 7, 11
+    Lean: 11, 12
 
 ```
 :::

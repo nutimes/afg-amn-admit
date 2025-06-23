@@ -89,6 +89,7 @@ body {
 
 /* ----------------------------------- AMN, Morbidity and AFI altogether ---- */
 
+/* -------------------------------------------------------- High seasons ---- */
 .gantt-seasonality-amn-factors #task2,
 .gantt-seasonality-amn-factors #task4,
 .gantt-seasonality-amn-factors #task7,
@@ -100,13 +101,15 @@ body {
 .gantt-seasonality-amn-factors #task18,
 .gantt-seasonality-amn-factors #task21,
 .gantt-seasonality-amn-factors #task24,
-.gantt-seasonality-amn-factors #task26 {
+.gantt-seasonality-amn-factors #task26,
+.gantt-seasonality-amn-factors #task29 {
   fill:#FF4500 !important;
   stroke:#FF4500  !important;
   stroke-width: 2px;
 }
 
 
+/* --------------------------------------------------------- Low seasons ---- */
 .gantt-seasonality-amn-factors #task1,
 .gantt-seasonality-amn-factors #task3,
 .gantt-seasonality-amn-factors #task5,
