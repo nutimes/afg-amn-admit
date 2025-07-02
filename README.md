@@ -19,8 +19,10 @@ timing of nutrition data collection efforts in the country.
 > [!NOTE]
 >
 > This analysis was made possible thanks to the strong collaboration of
-> Afghanistan’s Nutrition Cluster Coordination Team and UNICEF. Their
-> support and insights were instrumental throughout the process.
+> [Afghanistan’s Nutrition Cluster Coordination
+> Team](https://www.nutritioncluster.net/country/afghanistan) and
+> UNICEF. Their support and insights were instrumental throughout the
+> process.
 
 ## A glance at the results
 
