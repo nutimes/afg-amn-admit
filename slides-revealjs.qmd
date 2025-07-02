@@ -85,6 +85,8 @@ tsplot_byear
 ::: {.callout-important}
 ## Question?
 What may have hapenned in the 3rd quarter of 2021 and thereafter?
+
++ Insights from the Nutrition Cluster Coordination Team, following the presentation of preliminary findings, suggest that this is due to the scale-up of programme operations. With changes in government, previously inaccessible areas have become accessible for interventions.
 :::
 
 ## 
@@ -275,7 +277,7 @@ gantt
 
 
 ## {.smaller}
-### AMN, child morbidities and AFI seasonal calendars
+### AMN, child morbidity, AFI and access constraint seasons
 ::: {.gantt-seasonality-amn-factors}
 ```{mermaid}
 %%| label: amn-factors-seasonal-calendar
@@ -284,7 +286,6 @@ gantt
 %%| fig-width: 14
 
 gantt
-    title  AMN, child morbidity and AFI seasonal calendar
     dateFormat M
     axisFormat %b
     todayMarker off
@@ -333,6 +334,21 @@ gantt
     Harvest : 4, 7
     Post-harvest : 7, 11
     Lean: 11, 12
+
+    section Season
+    Winter : 1, 3
+    Spring: 3, 6
+    Summer: 6, 9
+    Autum: 9, 11
+    Winter: 11, 12
+
+    section Access constraints
+    Low access in mountainous and northern regions: 1, 3
+    Gradual improvement in access : 3, 5
+    Generally better access: 5, 7
+    Good physical access, but high insecurity: 7, 9
+    Mixed access conditions: 9, 11
+    Declining access in many regions: 11, 12
 
 ```
 :::
