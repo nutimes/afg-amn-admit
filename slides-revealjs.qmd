@@ -1,6 +1,6 @@
 ---
 title: "Understanding seasonal patterns of acute malnutrition and common childhood diseases in Afghanistan"
-subtitle: "Evidence from 14 and five years of admission data on acute malnutrition and diseases, respectively"
+subtitle: "Evidence from 12 and five years of admission data on acute malnutrition and diseases, respectively"
 ---
 
 ```{r}
