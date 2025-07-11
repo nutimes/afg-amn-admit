@@ -2,8 +2,8 @@ project:
   type: default
   output-dir: reports
 
-date: today
-date-formate: "DD MMMM YYYY"
+date: 2025-07-02
+date-format: "DD-MM-YYYY"
 
 format: 
   revealjs: 
